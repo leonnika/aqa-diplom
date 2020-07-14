@@ -63,22 +63,22 @@
 <details>
   <summary>Подробнее позитивный сценарий</summary>
 
-![шаг1](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.PNG) 
+![шаг1]https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.png) 
 
-![шаг2](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.PNG)
+![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
 
-![шаг3](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_3.PNG)
+![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_3.png)
 
 </details>
 
 <details>
   <summary>Подробнее негативный сценарий</summary>
 
-![шаг1](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.PNG) 
+![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.png) 
 
-![шаг2](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.PNG)
+![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
 
-![шаг3](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_3.PNG)
+![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_4.png)
 
 </details>
 
@@ -92,9 +92,9 @@
 <details>
   <summary>Подробнее позитивный сценарий</summary>
 
-![шаг1](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.PNG) 
+![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B92_1.png) 
 
-![шаг2](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.PNG)
+![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
 
 ![шаг3](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_3.PNG)
 
@@ -103,11 +103,11 @@
 <details>
   <summary>Подробнее негативный сценарий</summary>
 
-![шаг1](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.PNG) 
+![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B92_1.png) 
 
-![шаг2](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.PNG)
+![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
 
-![шаг3](https://github.com/leonnika/aqa-hw10-plan/blob/master/png/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_3.PNG)
+![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_4.png)
 
 </details>
 
@@ -115,11 +115,24 @@
 Подробный позитивный сценарий обработки покупки тура при всех валидных данных):**
 №пп | шаги  
 --- | --- 
-1.| Происходит запрос json через API в банковский сервис 
-2.| получении от него json ответа
+1.| Происходит запрос json через API в банковский сервис для валидных номеров карт:
+```
+{
+    "number": "4444 4444 4444 4441",
+    "status": "APPROVED"
+  }
+```
+2.| получении от него json ответа со статусом 200 вида:
+```
+{
+    "id": "09835b78-94c9-42e7-8158-6f49b8820a18",
+    "status": "APPROVED"
+}
+```
 3.| Обращение к СУБД и Создание Записи в таблицу "order_entity"
-4.|Создание Записи в таблицу "payment_entity"
-5.|Система выдает сообщение об успешной операции "Успешно. Операция одобрена банком!"
+c id (payment_id) и статусом полученными из  json ответа от симулятора
+4.|Создание Записи в таблицу "payment_entity" где transaction_id=payment_id из таблицы "order_entity" и значение amount равно сумме покупки тура в копейках(4 500 000)
+5.|Система выдает сообщение об успешной операции "Успешно. Операция одобрена банком!" 
 
 
 ## 2. Перечень используемых инструментов с обоснованием выбора

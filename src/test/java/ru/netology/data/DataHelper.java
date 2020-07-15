@@ -1,11 +1,16 @@
 package ru.netology.data;
 
+import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+
+import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$$;
 
 @Data
 public class DataHelper {
@@ -170,5 +175,11 @@ public class DataHelper {
         Faker faker = new Faker(new Locale("en"));
         String nameStr = faker.regexify("[A-Z]{6}") + " " + faker.name().firstName();
         return nameStr;
+    }
+
+    public static String getСurrentAmount() {
+        SelenideElement amountElement =$$("[class='list__item']").findBy(text("руб"));
+        String amount=amountElement.getText().replaceAll("[^0-9]", "")+"00";
+        return amount;
     }
 }

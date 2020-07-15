@@ -13,7 +13,7 @@ public class JSONparts {
     private JSONparts() {
     }
 
-    public static void jsonPartCredit(CardJSON card) {
+    public static String jsonPartCredit(CardJSON card) {
         Response response =
                 given() // "дано"
                         .spec(requestSpec) // указываем, какую спецификацию используем
@@ -26,28 +26,30 @@ public class JSONparts {
                         .response();
 
 
-       String status = response.path("status");
+        String status = response.path("status");
+        String id = response.path("id");
         // используются matcher'ы Hamcrest
         assertThat(status, equalTo(card.getStatus()));
-
+        return id;
     }
 
-    public static void jsonPartPayment(CardJSON card) {
+    public static String jsonPartPayment(CardJSON card) {
         Response response =
-        given() // "дано"
-                .spec(requestSpec) // указываем, какую спецификацию используем
-                .body(card) // передаём в теле объект, который будет преобразован в JSON
-                .when() // "когда"
-                .post("/payment") // на какой путь, относительно BaseUri отправляем запрос
-                .then() // "тогда ожидаем"
-                .statusCode(200) // код 200 OK
-                .extract()
-                .response();
+                given() // "дано"
+                        .spec(requestSpec) // указываем, какую спецификацию используем
+                        .body(card) // передаём в теле объект, который будет преобразован в JSON
+                        .when() // "когда"
+                        .post("/payment") // на какой путь, относительно BaseUri отправляем запрос
+                        .then() // "тогда ожидаем"
+                        .statusCode(200) // код 200 OK
+                        .extract()
+                        .response();
 
         String status = response.path("status");
+        String id = response.path("id");
         // используются matcher'ы Hamcrest
         assertThat(status, equalTo(card.getStatus()));
-
+        return id;
     }
 
 }

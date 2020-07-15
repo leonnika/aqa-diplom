@@ -1,9 +1,12 @@
 package ru.netology.page;
 
 import com.codeborne.selenide.SelenideElement;
+import org.jsoup.select.Evaluator;
 import ru.netology.data.CardInfo;
 import ru.netology.data.CardJSON;
 import ru.netology.data.DataHelper;
+
+import java.sql.SQLException;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
@@ -12,6 +15,8 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static ru.netology.utils.JSONparts.jsonPartPayment;
+import static ru.netology.utils.SQLpart.checkAmount;
+import static ru.netology.utils.SQLpart.checkStatusPayment;
 
 public class PaymentPage {
 
@@ -25,8 +30,8 @@ public class PaymentPage {
    private SelenideElement pass = $("[notification__title='Успешно']");
     private SelenideElement error = $("[notification__title='Ошибка']");
 
-    public void validCard() {
-        //  paymentLabel.should(visible);
+    public void validCard()  {
+        paymentLabel.should(visible);
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         numberCard.$("input").setValue(card.getNumber());
         month.$("input").setValue(card.getMonth());
@@ -34,7 +39,10 @@ public class PaymentPage {
         userName.$("input").setValue(card.getUser());
         cvc.$("input").setValue(Integer.toString(card.getCode()));
         execButton.click();
-        jsonPartPayment(new CardJSON(card.getNumber(), card.getStatus()));
+        String id=jsonPartPayment(new CardJSON(card.getNumber(), card.getStatus()));
+
+       // checkAmount(id);
+        //checkStatusPayment(id,card.getStatus());
         $(withText("Успешно")).waitUntil(visible, 15000);
     }
 

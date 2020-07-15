@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import ru.netology.data.DataHelper;
 import ru.netology.page.ShopPage;
 
+import java.sql.SQLException;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public class ShopTest {
@@ -15,11 +17,11 @@ public class ShopTest {
     }
 
     @Test
-    void shouldAuthorizationValidUser() {
+    void shouldPaymentValidAll() {
         val shopPage = new ShopPage();
-          val payment = shopPage.payment();
-          payment.validCard();
-
+        val payment = shopPage.payment();
+        payment.validCard();
+         //     System.out.println(DataHelper.getСurrentAmount());
             }
 }
 

@@ -27,7 +27,6 @@ public class PaymentPage {
 
     public void validCard() {
         //  paymentLabel.should(visible);
-        // numberCard.click();
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         numberCard.$("input").setValue(card.getNumber());
         month.$("input").setValue(card.getMonth());

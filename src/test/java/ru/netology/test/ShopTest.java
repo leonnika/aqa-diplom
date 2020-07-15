@@ -19,6 +19,7 @@ public class ShopTest {
         val shopPage = new ShopPage();
           val payment = shopPage.payment();
           payment.validCard();
+
             }
 }
 

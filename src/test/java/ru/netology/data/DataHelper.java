@@ -25,11 +25,11 @@ public class DataHelper {
         Faker faker = new Faker(new Locale("en"));
         String number = "4444 4444 4444 4441";
         String status = "APPROVED";
-       // String year = DataHelper.getValidDateMM().getYear();
-      //  String month = DataHelper.getValidDateMM().getMonth();
-        String user = faker.name().firstName() + faker.name().lastName();
+       String year = DataHelper.getValidDateMM().getYear();
+      String month = DataHelper.getValidDateMM().getMonth();
+        String user = faker.name().firstName() +" "+ faker.name().lastName();
         int code = Integer.parseInt(faker.regexify("[0-9]{3}"));
-        return new CardInfo(number, status, "09","23", code, user);
+        return new CardInfo(number, status, month,year, code, user);
     }
 
     public static CardInfo getValidCardInfoDECLINED() {
@@ -57,7 +57,7 @@ public class DataHelper {
     public static DateCard getValidDateMM() {
         LocalDate currentDate = LocalDate.now();
         String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
-        String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("mm", new Locale("ru")));
+        String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("MM", new Locale("ru")));
         int intervalYear = 6;
         int randomIndexYear = (int) (Math.random() * intervalYear);
         LocalDate ramdomValidYear = currentDate.plusYears(randomIndexYear);

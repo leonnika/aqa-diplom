@@ -1,6 +1,8 @@
 package ru.netology.page;
 
 import com.codeborne.selenide.SelenideElement;
+import ru.netology.data.CardInfo;
+import ru.netology.data.CardJSON;
 import ru.netology.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.exactText;
@@ -9,27 +11,32 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static ru.netology.utils.JSONparts.jsonPartPayment;
 
 public class PaymentPage {
+
     private SelenideElement paymentLabel = $(byText("Оплата по карте"));
-    private SelenideElement numberCard = $("[class='input input_type_text input_view_default input_size_m input_width_available input_has-label input_has-value input_invalid input_theme_alfa-on-white']");
-    private SelenideElement month = $("[input__top=Месяц]");
-    private SelenideElement year = $("[input__top=Год]");
-    private SelenideElement userName = $("[input__top=Владелец]");
-    private SelenideElement cvc = $("[input__top=CVC/CVV]");
+    private SelenideElement numberCard =$$("[class='form-field form-field_size_m form-field_theme_alfa-on-white']").find(exactText("Номер карты"));
+    private SelenideElement month =$$("[class='input-group__input-case']").find(exactText("Месяц"));
+    private SelenideElement year =$$("[class='input-group__input-case']").find(exactText("Год"));
+    private SelenideElement userName = $$("[class='input-group__input-case']").find(exactText("Владелец"));
+    private SelenideElement cvc = $$("[class='input-group__input-case']").find(exactText("CVC/CVV"));
    private SelenideElement execButton = $$("button").find(exactText("Продолжить"));
    private SelenideElement pass = $("[notification__title='Успешно']");
     private SelenideElement error = $("[notification__title='Ошибка']");
 
     public void validCard() {
-     //  paymentLabel.should(visible);
-       numberCard.$("input").setValue(DataHelper.getValidCardInfoAPPROVED().getNumber());
-       month.$("input").setValue(DataHelper.getValidCardInfoAPPROVED().getMonth());
-       year.$("[class='input__control']").setValue(DataHelper.getValidCardInfoAPPROVED().getYear());
-       userName.$("[class='input__control']").setValue(DataHelper.getValidCardInfoAPPROVED().getUser());
-       cvc.$("[class='input__control']").setValue(Integer.toString(DataHelper.getValidCardInfoAPPROVED().getCode()));
+        //  paymentLabel.should(visible);
+        // numberCard.click();
+        CardInfo card = DataHelper.getValidCardInfoAPPROVED();
+        numberCard.$("input").setValue(card.getNumber());
+        month.$("input").setValue(card.getMonth());
+        year.$("input").setValue(card.getYear());
+        userName.$("input").setValue(card.getUser());
+        cvc.$("input").setValue(Integer.toString(card.getCode()));
         execButton.click();
-        $(withText("Операция одобрена Банком.")).waitUntil(visible, 150);
+        jsonPartPayment(new CardJSON(card.getNumber(), card.getStatus()));
+        $(withText("Успешно")).waitUntil(visible, 15000);
     }
 
 }

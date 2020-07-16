@@ -26,6 +26,8 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
+mysql-data/
+data/
 
 ### VS Code ###
 .vscode/

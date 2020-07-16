@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
-import ru.netology.data.DataHelper;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;

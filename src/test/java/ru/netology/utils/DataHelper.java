@@ -1,14 +1,16 @@
-package ru.netology.data;
+package ru.netology.utils;
 
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import lombok.Data;
+import ru.netology.data.CardInfo;
+import ru.netology.data.CardJSON;
+import ru.netology.data.DateCard;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$$;
 

@@ -3,7 +3,7 @@ package ru.netology.page;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.CardInfo;
 import ru.netology.data.CardJSON;
-import ru.netology.data.DataHelper;
+import ru.netology.utils.DataHelper;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
@@ -12,7 +12,6 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static ru.netology.utils.JSONparts.jsonPartCredit;
-import static ru.netology.utils.JSONparts.jsonPartPayment;
 
 public class CreditPage {
     private SelenideElement paymentLabel = $(byText("Кредит по данным карты"));

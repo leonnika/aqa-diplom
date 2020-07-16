@@ -13,7 +13,7 @@ public class JSONparts {
     private JSONparts() {
     }
 
-    public static String jsonPartCredit(CardJSON card) {
+    public static void jsonPartCredit(CardJSON card) {
         Response response =
                 given() // "дано"
                         .spec(requestSpec) // указываем, какую спецификацию используем
@@ -27,13 +27,13 @@ public class JSONparts {
 
 
         String status = response.path("status");
-        String id = response.path("id");
+
         // используются matcher'ы Hamcrest
         assertThat(status, equalTo(card.getStatus()));
-        return id;
+
     }
 
-    public static String jsonPartPayment(CardJSON card) {
+    public static void jsonPartPayment(CardJSON card) {
         Response response =
                 given() // "дано"
                         .spec(requestSpec) // указываем, какую спецификацию используем
@@ -46,10 +46,10 @@ public class JSONparts {
                         .response();
 
         String status = response.path("status");
-        String id = response.path("id");
+
         // используются matcher'ы Hamcrest
         assertThat(status, equalTo(card.getStatus()));
-        return id;
+
     }
 
 }

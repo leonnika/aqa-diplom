@@ -65,7 +65,7 @@ public class DataHelper {
         LocalDate currentDate = LocalDate.now();
         String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
         String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("MM", new Locale("ru")));
-        int intervalYear = 6;
+        int intervalYear = 5;
         int randomIndexYear = (int) (Math.random() * intervalYear);
         LocalDate ramdomValidYear = currentDate.plusYears(randomIndexYear);
         String ramdomYearStr = ramdomValidYear.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
@@ -85,8 +85,8 @@ public class DataHelper {
     public static DateCard getValidDateM() {
         LocalDate currentDate = LocalDate.now();
         String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
-        String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("m", new Locale("ru")));
-        int intervalYear = 6;
+        String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("MM", new Locale("ru")));
+        int intervalYear = 5;
         int randomIndexYear = (int) (Math.random() * intervalYear);
         LocalDate ramdomValidYear = currentDate.plusYears(randomIndexYear);
         String ramdomYearStr = ramdomValidYear.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
@@ -106,7 +106,7 @@ public class DataHelper {
     public static DateCard getDateIsLast() {
         LocalDate currentDate = LocalDate.now();
         String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
-        String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("mm", new Locale("ru")));
+        String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("MM", new Locale("ru")));
         int intervalYear = Integer.parseInt(currentYear);
         int randomIndexYear = (int) (Math.random() * intervalYear);
         LocalDate ramdomYearIsLast = currentDate.minusYears(randomIndexYear);

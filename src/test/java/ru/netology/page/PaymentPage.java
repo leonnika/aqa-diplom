@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static ru.netology.utils.JSONparts.jsonPartPayment;
+import static ru.netology.utils.SQLpart.*;
 
 public class PaymentPage {
 
@@ -34,10 +35,10 @@ public class PaymentPage {
         userName.$("input").setValue(card.getUser());
         cvc.$("input").setValue(Integer.toString(card.getCode()));
         execButton.click();
-        String id=jsonPartPayment(new CardJSON(card.getNumber(), card.getStatus()));
+        jsonPartPayment(new CardJSON(card.getNumber(), card.getStatus()));
+        checkTransaction_id();
 
-       // checkAmount(id);
-        //checkStatusPayment(id,card.getStatus());
+        checkStatusPayment(getPayment_idInBD (),card.getStatus());
         $(withText("Успешно")).waitUntil(visible, 15000);
     }
 

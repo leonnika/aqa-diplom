@@ -103,7 +103,7 @@ public class SQLpart {
     public static void checkAmount()  {
         int expected = Integer.parseInt(DataHelper.getСurrentAmount());
         int actual = SQLpart.getAmountInBDpayment(getPayment_idInBD());
-//        System.out.println("ex ="+expected);
+        System.out.println(getPayment_idInBD());
 //        System.out.println("ac ="+actual);
         assertEquals(expected, actual);
     }

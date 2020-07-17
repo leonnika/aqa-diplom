@@ -37,7 +37,7 @@ public class PaymentPage {
         execButton.click();
         jsonPartPayment(new CardJSON(card.getNumber(), card.getStatus()));
         checkTransaction_id();
-
+        checkAmount();
         checkStatusPayment(getPayment_idInBD (),card.getStatus());
         $(withText("Успешно")).waitUntil(visible, 15000);
     }

@@ -33,7 +33,7 @@ public class CreditPage {
         userName.$("input").setValue(card.getUser());
         cvc.$("input").setValue(Integer.toString(card.getCode()));
         execButton.click();
-        String id=jsonPartCredit(new CardJSON(card.getNumber(), card.getStatus()));
+      jsonPartCredit(new CardJSON(card.getNumber(), card.getStatus()));
         //checkStatusCredit(id,card.getStatus());
         $(withText("Успешно")).waitUntil(visible, 15000);
     }

@@ -7,11 +7,12 @@ import ru.netology.page.ShopPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class ShopTest {
+public class PaymentTest {
     @BeforeEach
     void setUpAll() {
         open("http://localhost:8080");
     }
+
 
     @Test
     void shouldPaymentValidAll() {

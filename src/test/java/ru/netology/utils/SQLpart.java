@@ -16,104 +16,146 @@ public class SQLpart {
     private SQLpart() {
     }
 
-    public static String getAmountInBDpayment (String payment_id) throws SQLException {
+    public static String getAmountInBDpayment (String payment_id)  {
         val runner = new QueryRunner();
         val dataSQL = "SELECT amount FROM payment_entity WHERE transaction_id = ?";
-        val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
-        String amountInBD = runner.query(conn, dataSQL, new ScalarHandler<>(),payment_id);
-        return amountInBD;
+        int amountInBD=0;
+        try (
+                val conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+        ) {
+            amountInBD = runner.query(conn, dataSQL, new ScalarHandler<>(),payment_id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+                 return Integer.toString(amountInBD);
     }
 
-    public static String getStatusInBDpayment (String payment_id) throws SQLException {
+    public static String getStatusInBDpayment (String payment_id) {
         val runner = new QueryRunner();
         val dataSQL = "SELECT status FROM payment_entity WHERE transaction_id = ?";
-        val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
-        String statusInBD = runner.query(conn, dataSQL, new ScalarHandler<>(),payment_id);
-        return statusInBD;
+        String statusInBD=null;
+        try (
+                val conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+        ) {
+            statusInBD  = runner.query(conn, dataSQL, new ScalarHandler<>(),payment_id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+                return statusInBD;
     }
 
-    public static String getStatusInBDcredit (String payment_id) throws SQLException {
+    public static String getStatusInBDcredit (String payment_id)  {
         val runner = new QueryRunner();
         val dataSQL = "SELECT status FROM credit_request_entity WHERE bank_id = ?";
-        val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
-        String statusInBD = runner.query(conn, dataSQL, new ScalarHandler<>(),payment_id);
+        String statusInBD=null;
+        try (
+                val conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+        ) {
+            statusInBD  = runner.query(conn, dataSQL, new ScalarHandler<>(),payment_id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return statusInBD;
     }
 
     public static String getPayment_idInBD ()  {
         val runner = new QueryRunner();
         val dataSQL = "SELECT payment_id FROM order_entity WHERE created =(SELECT MAX(created) FROM order_entity)";
+        String payment_id=null;
+                try (
+                val conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+        ) {
 
-        try {
-           val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
+            payment_id=  runner.query(conn, dataSQL, new ScalarHandler<>());
         } catch (SQLException e) {
             e.printStackTrace();
-            String payment_id = runner.query(conn, dataSQL, new ScalarHandler<>());
         }
 
         return payment_id;
     }
 
-    public static String getCredit_idInBD () throws SQLException {
+    public static String getCredit_idInBD ()  {
         val runner = new QueryRunner();
         val dataSQL = "SELECT credit_id FROM order_entity WHERE created =(SELECT MAX(created) FROM order_entity)";
-        val conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
-        String credit_id = runner.query(conn, dataSQL, new ScalarHandler<>());
-        return credit_id;
-    }
-
-    public static void checkAmount(String id)  {
-        int expected = Integer.parseInt(DataHelper.getСurrentAmount());
-        int actual = 0;
-        try {
-            actual = Integer.parseInt(SQLpart.getAmountInBDpayment(id));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        assertEquals(expected, actual);
-    }
-
-    public static void checkStatusPayment(String id,String status)  {
-        String actual = null;
-        try {
-            actual = SQLpart.getStatusInBDpayment(id);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        assertEquals(status, actual);
-    }
-
-    public static void checkStatusCredit(String id,String status)  {
-        String actual = null;
-        try {
-            actual = SQLpart.getStatusInBDcredit(id);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        assertEquals(status, actual);
-    }
-
-    public static void checkTransaction_id() {
-        val runner = new QueryRunner();
-        val dataSQL = "SELECT transaction_id FROM payment_entity WHERE created =(SELECT MAX(created) FROM payment_entity)";
-        String statusInBD = null;
+        String credit_id=null;
         try (
                 val conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/app", "app", "pass"
                 );
         ) {
 
-            statusInBD =  runner.query(conn, dataSQL, new ScalarHandler<>());
+            credit_id = runner.query(conn, dataSQL, new ScalarHandler<>());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return credit_id;
+    }
+
+    public static void checkAmount()  {
+        String expected = DataHelper.getСurrentAmount();
+        String actual = SQLpart.getAmountInBDpayment(getPayment_idInBD());
+//        System.out.println("ex ="+expected);
+//        System.out.println("ac ="+actual);
+        assertEquals(expected, actual);
+    }
+
+    public static void checkStatusPayment(String id,String status)  {
+        String actual = null;
+        actual = SQLpart.getStatusInBDpayment(id);
+        assertEquals(status, actual);
+    }
+
+    public static void checkStatusCredit(String id,String status)  {
+        String actual = null;
+        actual = SQLpart.getStatusInBDcredit(id);
+        assertEquals(status, actual);
+    }
+
+    public static void checkTransaction_id() {
+        val runner = new QueryRunner();
+        val dataSQL = "SELECT transaction_id FROM payment_entity WHERE created =(SELECT MAX(created) FROM payment_entity)";
+        String idInBD = null;
+        try (
+                val conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+        ) {
+
+            idInBD =  runner.query(conn, dataSQL, new ScalarHandler<>());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         String expected = null;
         expected = getPayment_idInBD ();
-        assertEquals(expected, statusInBD);
+        assertEquals(expected, idInBD);
     }
 
     public static void checkBank_id(String credit_id)  {
+        val runner = new QueryRunner();
+        val dataSQL = "SELECT bank_id FROM credit_request_entity WHERE created =(SELECT MAX(created) FROM credit_request_entity)";
+        String idInBD = null;
+        try (
+                val conn = DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/app", "app", "pass"
+                );
+        ) {
 
+            idInBD =  runner.query(conn, dataSQL, new ScalarHandler<>());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String expected = null;
+        expected = getCredit_idInBD ();
+        assertEquals(expected, idInBD);
 
     }
 }

@@ -16,7 +16,7 @@ public class SQLpart {
     private SQLpart() {
     }
 
-    public static String getAmountInBDpayment (String payment_id)  {
+    public static int getAmountInBDpayment (String payment_id)  {
         val runner = new QueryRunner();
         val dataSQL = "SELECT amount FROM payment_entity WHERE transaction_id = ?";
         int amountInBD=0;
@@ -29,7 +29,7 @@ public class SQLpart {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-                 return Integer.toString(amountInBD);
+                 return amountInBD;
     }
 
     public static String getStatusInBDpayment (String payment_id) {
@@ -101,8 +101,8 @@ public class SQLpart {
     }
 
     public static void checkAmount()  {
-        String expected = DataHelper.getСurrentAmount();
-        String actual = SQLpart.getAmountInBDpayment(getPayment_idInBD());
+        int expected = Integer.parseInt(DataHelper.getСurrentAmount());
+        int actual = SQLpart.getAmountInBDpayment(getPayment_idInBD());
 //        System.out.println("ex ="+expected);
 //        System.out.println("ac ="+actual);
         assertEquals(expected, actual);

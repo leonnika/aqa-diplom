@@ -3,6 +3,8 @@ Thumbs.db*
 HELP.md
 .gradle
 build/
+mysql-data/
+data/
 
 ### STS ###
 .apt_generated
@@ -26,8 +28,6 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
-mysql-data/
-data/
 
 ### VS Code ###
 .vscode/

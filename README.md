@@ -33,10 +33,16 @@
 docker-compose up
 ```
 
-* Для запуска БД выполните:
+* Для запуска БД mysql выполните:
  
 ```
 docker-compose exec mysql mysql -u app -p app
+
+```
+* Для запуска БД postgresql выполните:
+ 
+```
+docker-compose exec postgresql psql -u app -p app
 
 ```
 
@@ -50,7 +56,7 @@ java -jar ./artifacts/aqa-shop.jar
 * Для запуска тестов:
 
 ```
-./gradlew test -Dselenide.headless=true --info
+gradlew test -Dselenide.headless=true --info
 ```
 
 

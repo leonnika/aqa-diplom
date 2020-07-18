@@ -35,7 +35,7 @@ public class DataHelper {
        String year = DataHelper.getValidDateMM().getYear();
       String month = DataHelper.getValidDateMM().getMonth();
         String user = faker.name().firstName() +" "+ faker.name().lastName();
-        int code = Integer.parseInt(faker.regexify("[0-9]{3}"));
+        int code = Integer.parseInt(faker.regexify("[1-9]{3}"));
         return new CardInfo(number, status, month,year, code, user);
     }
 
@@ -65,7 +65,7 @@ public class DataHelper {
         LocalDate currentDate = LocalDate.now();
         String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
         String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("MM", new Locale("ru")));
-        int intervalYear = 5;
+        int intervalYear = 1;
         int randomIndexYear = (int) (Math.random() * intervalYear);
         LocalDate ramdomValidYear = currentDate.plusYears(randomIndexYear);
         String ramdomYearStr = ramdomValidYear.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
@@ -76,6 +76,14 @@ public class DataHelper {
         if (Integer.parseInt(ramdomYearStr) == Integer.parseInt(currentYear)) {
             while (Integer.parseInt(randomMonth) < Integer.parseInt(currentMonth)) {
                 randomIndex = (int) (Math.random() * monthNumber);
+                System.out.println("20");
+                randomMonth = month[randomIndex];
+            }
+        }
+        if (Integer.parseInt(ramdomYearStr) == (Integer.parseInt(currentYear))+intervalYear)  {
+            while (Integer.parseInt(randomMonth) > Integer.parseInt(currentMonth)) {
+                randomIndex = (int) (Math.random() * monthNumber);
+                System.out.println("25");
                 randomMonth = month[randomIndex];
             }
         }
@@ -97,6 +105,13 @@ public class DataHelper {
         if (Integer.parseInt(ramdomYearStr) == Integer.parseInt(currentYear)) {
             while (Integer.parseInt(randomMonth) < Integer.parseInt(currentMonth)) {
                 randomIndex = (int) (Math.random() * monthNumber);
+                randomMonth = month[randomIndex];
+            }
+        }
+        if (Integer.parseInt(ramdomYearStr) == (Integer.parseInt(currentYear))+intervalYear)  {
+            while (Integer.parseInt(randomMonth) > Integer.parseInt(currentMonth)) {
+                randomIndex = (int) (Math.random() * monthNumber);
+                System.out.println("25");
                 randomMonth = month[randomIndex];
             }
         }
@@ -162,18 +177,24 @@ public class DataHelper {
         return nameStr;
     }
 
+    public static String getUserVeryLongName() {
+        Faker faker = new Faker(new Locale("ru"));
+        String nameStr = faker.regexify("[A-Z]{11}") + " " + faker.regexify("[A-Z]{10}");
+        return nameStr;
+    }
+
     public static String getUserRuName() {
         Faker faker = new Faker(new Locale("ru"));
         return faker.name().fullName();
     }
 
-    public static String getUserDubleName(String locale) {
+    public static String getUserDubleName() {
         Faker faker = new Faker(new Locale("en"));
         String nameStr = faker.name().lastName() + " " + faker.name().firstName() + "-" + faker.name().firstName();
         return nameStr;
     }
 
-    public static String getUserDifferentCaseLettersName(String locale) {
+    public static String getUserDifferentCaseLettersName() {
         Faker faker = new Faker(new Locale("en"));
         String nameStr = faker.regexify("[A-Z]{6}") + " " + faker.name().firstName();
         return nameStr;

@@ -139,7 +139,7 @@ public class SQLpart {
         assertEquals(expected, idInBD);
     }
 
-    public static void checkBank_id(String credit_id)  {
+    public static void checkBank_id()  {
         val runner = new QueryRunner();
         val dataSQL = "SELECT bank_id FROM credit_request_entity WHERE created =(SELECT MAX(created) FROM credit_request_entity)";
         String idInBD = null;

@@ -4,7 +4,7 @@ HELP.md
 .gradle
 build/
 mysql-data/
-data/
+psql-data/
 
 ### STS ###
 .apt_generated

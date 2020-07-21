@@ -53,10 +53,15 @@ java -jar ./artifacts/aqa-shop.jar
 
 ```
 
-* Для запуска тестов:
+* Для запуска тестов c mysql:
 
 ```
-gradlew test -Dselenide.headless=true --info
+gradlew test -Dselenide.headless=true -Durlbd=jdbc:mysql://localhost:3306/app -Duser=app -Duser=app -Dpassword=pass--info
+```
+* Для запуска тестов c psql:
+
+```
+gradlew test -Dselenide.headless=true -Durlbd=jdbc:postgresql://localhost:5432/app -Duser=app -Duser=app -Dpassword=pass--info
 ```
 
 

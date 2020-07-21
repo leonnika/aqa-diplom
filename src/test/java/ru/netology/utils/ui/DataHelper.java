@@ -1,4 +1,4 @@
-package ru.netology.utils;
+package ru.netology.utils.ui;
 
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
@@ -32,11 +32,11 @@ public class DataHelper {
         Faker faker = new Faker(new Locale("en"));
         String number = "4444 4444 4444 4441";
         String status = "APPROVED";
-       String year = DataHelper.getValidDateMM().getYear();
-      String month = DataHelper.getValidDateMM().getMonth();
-        String user = faker.name().firstName() +" "+ faker.name().lastName();
+        String year = DataHelper.getValidDateMM().getYear();
+        String month = DataHelper.getValidDateMM().getMonth();
+        String user = faker.name().firstName() + " " + faker.name().lastName();
         int code = Integer.parseInt(faker.regexify("[1-9]{3}"));
-        return new CardInfo(number, status, month,year, code, user);
+        return new CardInfo(number, status, month, year, code, user);
     }
 
     public static CardInfo getValidCardInfoDECLINED() {
@@ -58,38 +58,50 @@ public class DataHelper {
             result = result + faker.regexify("[0-9]{1}");
             i++;
         }
+
         return result;
     }
 
+    // метод для получения валидной даты. .
     public static DateCard getValidDateMM() {
+        //Из текущей даты берем год и месяц
         LocalDate currentDate = LocalDate.now();
         String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
         String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("MM", new Locale("ru")));
-        int intervalYear = 1;
+        //допустим что карта выдаа на максимальный срок
+        int intervalYear = 5;
+        // выбираем рандомный валидный год из интервала от текущего года до иаксимального т.е. плюс 5 лет
         int randomIndexYear = (int) (Math.random() * intervalYear);
         LocalDate ramdomValidYear = currentDate.plusYears(randomIndexYear);
         String ramdomYearStr = ramdomValidYear.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
+        //массив из месяцев в формате ММ
         int monthNumber = 12;
         String[] month = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
+        //рандовный месяц выбираем из возможных
         int randomIndex = (int) (Math.random() * monthNumber);
         String randomMonth = month[randomIndex];
+        // если рандомный год равен текущему, то валидным будет только месяц больше и равен текущему
+        // (если меньше текущего т.е раньше то карта уже просрочена и месяц не будет валидным)
+        //выбираем месяц пока эту условие не выполнится
         if (Integer.parseInt(ramdomYearStr) == Integer.parseInt(currentYear)) {
             while (Integer.parseInt(randomMonth) < Integer.parseInt(currentMonth)) {
                 randomIndex = (int) (Math.random() * monthNumber);
-                System.out.println("20");
                 randomMonth = month[randomIndex];
             }
         }
-        if (Integer.parseInt(ramdomYearStr) == (Integer.parseInt(currentYear))+intervalYear)  {
+        //если год равен текущец плюс пять, то валидным будет месяц меньше текущего
+        // иначе срок карты не на пять лет а больше. Перебираем месяц пока это не выполнится
+        if (Integer.parseInt(ramdomYearStr) == (Integer.parseInt(currentYear)) + intervalYear) {
             while (Integer.parseInt(randomMonth) > Integer.parseInt(currentMonth)) {
                 randomIndex = (int) (Math.random() * monthNumber);
-                System.out.println("25");
                 randomMonth = month[randomIndex];
             }
         }
         return new DateCard(randomMonth, ramdomYearStr);
     }
 
+    // логика метода аналогично предыдущему,
+    // только пользователь может ввести месяц и как однозначное число, что тоже допустимо
     public static DateCard getValidDateM() {
         LocalDate currentDate = LocalDate.now();
         String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
@@ -98,8 +110,8 @@ public class DataHelper {
         int randomIndexYear = (int) (Math.random() * intervalYear);
         LocalDate ramdomValidYear = currentDate.plusYears(randomIndexYear);
         String ramdomYearStr = ramdomValidYear.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
-        int monthNumber = 12;
-        String[] month = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+        int monthNumber = 9;
+        String[] month = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
         int randomIndex = (int) (Math.random() * monthNumber);
         String randomMonth = month[randomIndex];
         if (Integer.parseInt(ramdomYearStr) == Integer.parseInt(currentYear)) {
@@ -108,16 +120,18 @@ public class DataHelper {
                 randomMonth = month[randomIndex];
             }
         }
-        if (Integer.parseInt(ramdomYearStr) == (Integer.parseInt(currentYear))+intervalYear)  {
+        if (Integer.parseInt(ramdomYearStr) == (Integer.parseInt(currentYear)) + intervalYear) {
             while (Integer.parseInt(randomMonth) > Integer.parseInt(currentMonth)) {
                 randomIndex = (int) (Math.random() * monthNumber);
-                System.out.println("25");
                 randomMonth = month[randomIndex];
             }
         }
         return new DateCard(randomMonth, ramdomYearStr);
     }
 
+    //метод получения невалидной даты(существующая дата) при которой срок карты истек. Т.Е. год меньшего текущего,
+    // либо если равен текущему, но месяц прошедший текущему
+    // при такой дате, ситемы выдает ошибку "срок действия истек"
     public static DateCard getDateIsLast() {
         LocalDate currentDate = LocalDate.now();
         String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
@@ -139,11 +153,15 @@ public class DataHelper {
         return new DateCard(randomMonth, ramdomYearStr);
     }
 
+    //метод получения невалидной даты
+// при такой дате, ситемы выдает ошибку неверный формат"
     public static DateCard getDateInvalid() {
         Faker faker = new Faker(new Locale("ru"));
+        // как вариант точно не бывает месяца число которого юольше 12
         int randomMonth = 12 + Integer.parseInt(faker.regexify("[1-9]{1}"));
         LocalDate currentDate = LocalDate.now();
         LocalDate maxValidYear = currentDate.plusYears(6);
+        //   как вариант год больше текущего на 20 точно не будет валидным относительно срока действия карты
         int invalidIntervalYear = 20;
         int randomIndexYear = (int) (Math.random() * invalidIntervalYear);
         LocalDate ramdomInValidYear = currentDate.plusYears(randomIndexYear);
@@ -201,8 +219,8 @@ public class DataHelper {
     }
 
     public static String getСurrentAmount() {
-        SelenideElement amountElement =$$("[class='list__item']").findBy(text("руб"));
-        String amount=amountElement.getText().replaceAll("[^0-9]", "")+"00";
+        SelenideElement amountElement = $$("[class='list__item']").findBy(text("руб"));
+        String amount = amountElement.getText().replaceAll("[^0-9]", "") + "00";
         return amount;
     }
 }

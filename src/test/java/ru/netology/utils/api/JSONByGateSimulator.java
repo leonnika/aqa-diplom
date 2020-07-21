@@ -1,19 +1,17 @@
-package ru.netology.utils;
+package ru.netology.utils.api;
 
 import io.restassured.response.Response;
 import ru.netology.data.CardJSON;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static ru.netology.utils.AuthTest.requestSpec;
+import static ru.netology.utils.api.AuthTest.requestSpec;
 
-public class JSONparts {
+public class JSONByGateSimulator {
 
-    private JSONparts() {
+    private JSONByGateSimulator() {
     }
 
-    public static void jsonPartCredit(CardJSON card) {
+    public static String jsonByCredit(CardJSON card) {
         Response response =
                 given() // "дано"
                         .spec(requestSpec) // указываем, какую спецификацию используем
@@ -24,16 +22,11 @@ public class JSONparts {
                         .statusCode(200) // код 200 OK
                         .extract()
                         .response();
-
-
         String status = response.path("status");
-
-        // используются matcher'ы Hamcrest
-        assertThat(status, equalTo(card.getStatus()));
-
+        return status;
     }
 
-    public static void jsonPartPayment(CardJSON card) {
+    public static String jsonByPayment(CardJSON card) {
         Response response =
                 given() // "дано"
                         .spec(requestSpec) // указываем, какую спецификацию используем
@@ -44,12 +37,7 @@ public class JSONparts {
                         .statusCode(200) // код 200 OK
                         .extract()
                         .response();
-
         String status = response.path("status");
-
-        // используются matcher'ы Hamcrest
-        assertThat(status, equalTo(card.getStatus()));
-
+        return status;
     }
-
 }

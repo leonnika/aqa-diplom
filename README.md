@@ -1,7 +1,7 @@
 # Тестирование сценария покупки тура через комплексный веб-сервис, взаимодействующего с СУБД и API Банка.
 ## Документация
 
-1. План автоматизации - [Plan.md](https://github.com/leonnika/aqa-diplom/blob/master/doc/Plan.md)
+1. План автоматизации - [Plan.md](https://github.com/leonnika/aqa-diplom/blob/master/docs/Plan.md)
 2. Отчётные документы по итогам тестирования - Report.md (!не готов)
 3. Отчётные документы по итогам автоматизации - Summary.md (!не готов)
 

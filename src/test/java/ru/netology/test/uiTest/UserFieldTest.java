@@ -1,26 +1,28 @@
 package ru.netology.test.uiTest;
 
-        import lombok.val;
-        import org.junit.jupiter.api.BeforeEach;
-        import org.junit.jupiter.api.Test;
-        import ru.netology.data.CardInfo;
-        import ru.netology.page.ShopPage;
-        import ru.netology.utils.ui.DataHelper;
-        import ru.netology.utils.ui.QueriesToBD;
+import lombok.val;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import ru.netology.data.CardInfo;
+import ru.netology.page.ShopPage;
+import ru.netology.utils.ui.DataHelper;
+import ru.netology.utils.ui.QueriesToBD;
 
-        import static com.codeborne.selenide.Selenide.open;
-        import static org.junit.jupiter.api.Assertions.assertEquals;
-        import static ru.netology.utils.ui.QueriesToBD.getPayment_idInBD;
-        import static ru.netology.utils.ui.QueriesToBD.getTransaction_id;
+import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static ru.netology.utils.ui.QueriesToBD.getPayment_idInBD;
+import static ru.netology.utils.ui.QueriesToBD.getTransaction_id;
 
-        public class UserFieldTest {
-        @BeforeEach
-        void setUpAll() {
-        open("http://localhost:8080");
-        }
+public class UserFieldTest {
+    private static String urlSUT = System.getProperty("urlSut");
 
-        @Test
-        void shouldNotPaymentUserEmpty() {
+    @BeforeEach
+    void setUpAll() {
+        open(urlSUT);
+    }
+
+    @Test
+    void shouldNotPaymentUserEmpty() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -29,10 +31,10 @@ package ru.netology.test.uiTest;
         formCard.formFilling(card);
         formCard.operationErrorField("Владелец", "Поле обязательно для заполнения");
 
-        }
+    }
 
-        @Test
-        void shouldPaymentValidAllUserShortName() {
+    @Test
+    void shouldPaymentValidAllUserShortName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -49,10 +51,10 @@ package ru.netology.test.uiTest;
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDpayment(getPayment_idInBD());
         assertEquals(expectedStatus, actualStatus);
-        }
+    }
 
-        @Test
-        void shouldPaymentValidAllUserLongName() {
+    @Test
+    void shouldPaymentValidAllUserLongName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -69,11 +71,11 @@ package ru.netology.test.uiTest;
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDpayment(getPayment_idInBD());
         assertEquals(expectedStatus, actualStatus);
-        }
+    }
 
-        @Test
+    @Test
         //issue8
-        void shouldNotPaymentUserIsSpecialSymbols() {
+    void shouldNotPaymentUserIsSpecialSymbols() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -81,11 +83,11 @@ package ru.netology.test.uiTest;
         card.setUser(DataHelper.getStringIsSpecialSymbols(7));
         formCard.formFilling(card);
         formCard.operationErrorField("Владелец", "Поле обязательно для заполнения");
-        }
+    }
 
-        @Test
+    @Test
         //issue10
-        void shouldNotPaymentValidAllUserDifferentCaseLettersName() {
+    void shouldNotPaymentValidAllUserDifferentCaseLettersName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -93,10 +95,10 @@ package ru.netology.test.uiTest;
         card.setUser(DataHelper.getUserDifferentCaseLettersName());
         formCard.formFilling(card);
         formCard.operationErrorField("Владелец", "Неверный формат");
-        }
+    }
 
-        @Test
-        void shouldPaymentValidAllUserDubleName() {
+    @Test
+    void shouldPaymentValidAllUserDubleName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -113,11 +115,11 @@ package ru.netology.test.uiTest;
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDpayment(getPayment_idInBD());
         assertEquals(expectedStatus, actualStatus);
-        }
+    }
 
-        @Test
+    @Test
 //issue11
-        void shouldNotPaymentValidAllUserRuName() {
+    void shouldNotPaymentValidAllUserRuName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -125,11 +127,11 @@ package ru.netology.test.uiTest;
         card.setUser(DataHelper.getUserRuName());
         formCard.formFilling(card);
         formCard.operationErrorField("Владелец", "Неверный формат");
-        }
+    }
 
-        @Test
+    @Test
 //issue12
-        void shouldNotPaymentValidAllUserMore21Letters() {
+    void shouldNotPaymentValidAllUserMore21Letters() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -137,5 +139,5 @@ package ru.netology.test.uiTest;
         card.setUser(DataHelper.getUserVeryLongName());
         formCard.formFilling(card);
         formCard.operationErrorField("Владелец", "Неверный формат");
-        }
-        }
+    }
+}

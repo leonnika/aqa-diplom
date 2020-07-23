@@ -15,9 +15,11 @@ import static ru.netology.utils.ui.QueriesToBD.getPayment_idInBD;
 import static ru.netology.utils.ui.QueriesToBD.getTransaction_id;
 
 public class DateFieldTest {
+    private static String urlSUT = System.getProperty("urlSut");
+
     @BeforeEach
     void setUpAll() {
-        open("http://localhost:8080");
+        open(urlSUT);
     }
 
     @Test

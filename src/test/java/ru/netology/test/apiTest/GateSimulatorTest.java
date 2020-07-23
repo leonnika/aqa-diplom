@@ -14,32 +14,32 @@ public class GateSimulatorTest {
 
     @Test
     void shouldGetStatusByPaymentGateStatusAPPROVED() {
-        CardInfo card = DataHelper.getValidCardInfoAPPROVED();
-        String actual = jsonByPayment(new CardJSON(card.getNumber(), card.getStatus()));
+        CardJSON card = DataHelper.getValidCardJsonAPPROVED();
+        String actual = jsonByPayment(card);
         String expected = card.getStatus();
         assertThat(actual, equalTo(expected));
     }
 
     @Test
     void shouldGetStatusByPaymentGateStatusDECLINED() {
-        CardInfo card = DataHelper.getValidCardInfoDECLINED();
-        String actual = jsonByPayment(new CardJSON(card.getNumber(), card.getStatus()));
+        CardJSON card = DataHelper.getValidCardJsonDECLINED();
+        String actual = jsonByPayment(card);
         String expected = card.getStatus();
         assertThat(actual, equalTo(expected));
     }
 
     @Test
     void shouldGetStatusByCreditGateStatusAPPROVED() {
-        CardInfo card = DataHelper.getValidCardInfoAPPROVED();
-        String actual = jsonByCredit(new CardJSON(card.getNumber(), card.getStatus()));
+        CardJSON card = DataHelper.getValidCardJsonAPPROVED();
+        String actual = jsonByCredit(card);
         String expected = card.getStatus();
         assertThat(actual, equalTo(expected));
     }
 
     @Test
     void shouldGetStatusByCreditGateStatusDECLINED() {
-        CardInfo card = DataHelper.getValidCardInfoDECLINED();
-        String actual = jsonByCredit(new CardJSON(card.getNumber(), card.getStatus()));
+        CardJSON card = DataHelper.getValidCardJsonDECLINED();
+        String actual = jsonByCredit(card);
         String expected = card.getStatus();
         assertThat(actual, equalTo(expected));
     }

@@ -15,10 +15,11 @@ import static ru.netology.utils.ui.QueriesToBD.getTransaction_id;
 
 public class PaymentTest {
 
+    private static String urlSUT = System.getProperty("urlSut");
 
     @BeforeEach
     void setUpAll() {
-        open("http://localhost:8080");
+        open(urlSUT);
     }
 
     @Test
@@ -32,10 +33,10 @@ public class PaymentTest {
         String actualId = getTransaction_id();
         assertEquals(expectedId, actualId);
         int expectedAmount = Integer.parseInt(DataHelper.getСurrentAmount());
-        int actualAmount = QueriesToBD.getAmountInBDpayment(getPayment_idInBD());
+        int actualAmount = QueriesToBD.getAmountInBDpayment(getTransaction_id());
         assertEquals(expectedAmount, actualAmount);
         String expectedStatus = card.getStatus();
-        String actualStatus = QueriesToBD.getStatusInBDpayment(getPayment_idInBD());
+        String actualStatus = QueriesToBD.getStatusInBDpayment(getTransaction_id());
         assertEquals(expectedStatus, actualStatus);
         formCard.operationSuccess();
     }

@@ -30,6 +30,7 @@ test {
     // в тестах, вызывая `gradlew test -Dselenide.headless=true` будем передавать этот параметр в JVM (где его подтянет Selenide)
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
     systemProperty 'urlbd', System.getProperty('urlbd')
-    systemProperty 'user', System.getProperty('user')
-    systemProperty 'password', System.getProperty('passwod')
+    systemProperty 'user', System.getProperty('user',"app")
+    systemProperty 'password', System.getProperty('password',"pass")
+    systemProperty 'urlSut', System.getProperty('urlSut',"http://localhost:8080")
 }

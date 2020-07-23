@@ -10,9 +10,11 @@ import ru.netology.utils.ui.DataHelper;
 import static com.codeborne.selenide.Selenide.open;
 
 public class CodeFieldTest {
+    private static String urlSUT = System.getProperty("urlSut");
+
     @BeforeEach
     void setUpAll() {
-        open("http://localhost:8080");
+        open(urlSUT);
     }
 
     @Test
@@ -22,7 +24,7 @@ public class CodeFieldTest {
         val payment = shopPage.payment();
         val formCard = payment.formCard();
         formCard.codeEmpty();
-        formCard.operationErrorField("CVC/CVV", "Поле обязательно для заполнения");
+        formCard.operationErrorCodeNumber("Поле обязательно для заполнения");
     }
 
     @Test
@@ -42,6 +44,6 @@ public class CodeFieldTest {
         val payment = shopPage.payment();
         val formCard = payment.formCard();
         formCard.codeIsSpecialSymbols();
-        formCard.operationErrorField("CVC/CVV", "Неверный формат");
+        formCard.operationErrorCodeNumber( "Неверный формат");
     }
 }

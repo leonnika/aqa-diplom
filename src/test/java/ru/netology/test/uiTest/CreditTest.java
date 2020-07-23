@@ -15,9 +15,11 @@ import static ru.netology.utils.ui.QueriesToBD.getCredit_idInBD;
 
 public class CreditTest {
 
+    private static String urlSUT = System.getProperty("urlSut");
+
     @BeforeEach
     void setUpAll() {
-        open("http://localhost:8080");
+        open(urlSUT);
     }
 
     @Test

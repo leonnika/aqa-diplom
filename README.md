@@ -33,35 +33,28 @@
 docker-compose up
 ```
 
-* Для запуска БД mysql выполните:
- 
-```
-docker-compose exec mysql mysql -u app -p app
+* Для запуска приложения c mysql выполните:
 
 ```
-* Для запуска БД postgresql выполните:
- 
-```
-docker-compose exec postgresql psql -u app -p app
+java -jar ./artifacts/aqa-shop.jar -Dspring.datasource.url=jdbc:mysql://localhost:3306/app
 
 ```
-
-* Для запуска приложения выполните:
+* Для запуска приложения c psql выполните:
 
 ```
-java -jar ./artifacts/aqa-shop.jar
+java -jar ./artifacts/aqa-shop.jar -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app
 
 ```
 
 * Для запуска тестов c mysql:
 
 ```
-gradlew test -Dselenide.headless=true -Durlbd=jdbc:mysql://localhost:3306/app -Duser=app -Duser=app -Dpassword=pass--info
+gradlew test -Dselenide.headless=true -Durlbd=jdbc:mysql://localhost:3306/app --info
 ```
 * Для запуска тестов c psql:
 
 ```
-gradlew test -Dselenide.headless=true -Durlbd=jdbc:postgresql://localhost:5432/app -Duser=app -Duser=app -Dpassword=pass--info
+gradlew test -Dselenide.headless=true -Durlbd=jdbc:postgresql://localhost:5432/app --info
 ```
 
 

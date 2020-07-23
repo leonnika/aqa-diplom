@@ -12,6 +12,7 @@ public class PaymentPage {
 
     public FormCardPage formCard() {
         paymentLabel.should(visible);
+
         return new FormCardPage();
     }
 }

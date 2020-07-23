@@ -46,6 +46,11 @@ public class FormCardPage {
         error.$("[class='input__sub']").shouldHave(exactText(errorMessage));
     }
 
+    public void operationErrorCodeNumber(String errorMessage) {
+        SelenideElement error = $("[class='input input_type_text input_view_default input_size_m input_width_available input_has-label input_invalid input_theme_alfa-on-white']").shouldHave(text("CVC/CVV"));
+        error.$("[class='input__sub']").shouldHave(exactText(errorMessage));
+    }
+
     public void codeEmpty() {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         numberCard.$("input").setValue(card.getNumber());

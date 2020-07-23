@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Data
 public class QueriesToBD {
-    private static String urlBD = System.getProperty("urlbd");
+    private static String urlbd = System.getProperty("urlbd");
     private static String user = System.getProperty("user");
     private static String password = System.getProperty("password");
 
@@ -26,7 +26,7 @@ public class QueriesToBD {
         int amountInBD = 0;
         try (
                 val conn = DriverManager.getConnection(
-                      urlBD, user, password
+                        urlbd, user, password
 //                val conn = DriverManager.getConnection(
 //                        "jdbc:mysql://localhost:3306/app", "app", "pass"
                 );
@@ -44,7 +44,7 @@ public class QueriesToBD {
         String statusInBD = null;
         try (
                 val conn = DriverManager.getConnection(
-                        urlBD, user, password
+                        urlbd, user, password
 //                val conn = DriverManager.getConnection(
 //                        "jdbc:mysql://localhost:3306/app", "app", "pass"
                 );
@@ -62,7 +62,7 @@ public class QueriesToBD {
         String statusInBD = null;
         try (
                 val conn = DriverManager.getConnection(
-                        urlBD, user, password
+                        urlbd, user, password
 //                val conn = DriverManager.getConnection(
 //                        "jdbc:mysql://localhost:3306/app", "app", "pass"
                 );
@@ -80,7 +80,7 @@ public class QueriesToBD {
         String payment_id = null;
         try (
                 val conn = DriverManager.getConnection(
-                        urlBD, user, password
+                        urlbd, user, password
 //                val conn = DriverManager.getConnection(
 //                        "jdbc:mysql://localhost:3306/app", "app", "pass"
                 );
@@ -100,7 +100,7 @@ public class QueriesToBD {
         String credit_id = null;
         try (
                 val conn = DriverManager.getConnection(
-                        urlBD, user, password
+                        urlbd, user, password
 //                val conn = DriverManager.getConnection(
 //                        "jdbc:mysql://localhost:3306/app", "app", "pass"
                 );
@@ -114,19 +114,13 @@ public class QueriesToBD {
         return credit_id;
     }
 
-    public static void checkStatusCredit(String id, String status) {
-        String actual = null;
-        actual = QueriesToBD.getStatusInBDcredit(id);
-        assertEquals(status, actual);
-    }
-
     public static String getTransaction_id() {
         val runner = new QueryRunner();
         val dataSQL = "SELECT transaction_id FROM payment_entity WHERE created =(SELECT MAX(created) FROM payment_entity)";
         String idInBD = null;
         try (
                 val conn = DriverManager.getConnection(
-                        urlBD, user, password
+                        urlbd, user, password
 //                val conn = DriverManager.getConnection(
 //                        "jdbc:mysql://localhost:3306/app", "app", "pass"
                 );
@@ -145,7 +139,7 @@ public class QueriesToBD {
         String idInBD = null;
         try (
                 val conn = DriverManager.getConnection(
-                        urlBD, user, password
+                        urlbd, user, password
 //                val conn = DriverManager.getConnection(
 //                        "jdbc:mysql://localhost:3306/app", "app", "pass"
                 );

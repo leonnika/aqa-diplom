@@ -10,10 +10,11 @@ import ru.netology.utils.ui.DataHelper;
 import static com.codeborne.selenide.Selenide.open;
 
 public class CardNumberFieldTest {
+    private static String urlSUT = System.getProperty("urlSut");
 
     @BeforeEach
     void setUpAll() {
-        open("http://localhost:8080");
+        open(urlSUT);
     }
 
 

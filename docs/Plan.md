@@ -24,22 +24,22 @@
 <details>
   <summary>Подробнее позитивный сценарий по карте</summary>
 
-![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.png) 
+![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.png) 
 
-![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
+![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
 
-![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_3.png)
+![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_3.png)
 
 </details>
 
 <details>
   <summary>Подробнее негативный сценарий покупки по карте</summary>
 
-![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.png) 
+![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_1.png) 
 
-![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
+![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
 
-![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_4.png)
+![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_4.png)
 
 </details>
 
@@ -64,22 +64,22 @@
 <details>
   <summary>Подробнее позитивный сценарий покупки в кредит</summary>
 
-![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B92_1.png) 
+![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B92_1.png) 
 
-![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
+![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
 
-![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_3.png)
+![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_3.png)
 
 </details>
 
 <details>
   <summary>Подробнее негативный сценарий покупки в кредит</summary>
 
-![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B92_1.png) 
+![шаг1](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B92_1.png) 
 
-![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
+![шаг2](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_2.png)
 
-![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_4.png)
+![шаг3](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/plan/%D1%81%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B91_4.png)
 
 </details>
 

@@ -22,7 +22,7 @@ public class CodeFieldTest {
         val payment = shopPage.payment();
         val formCard = payment.formCard();
         formCard.codeEmpty();
-        formCard.OperationErrorField("CVC/CVV", "Поле обязательно для заполнения");
+        formCard.operationErrorField("CVC/CVV", "Поле обязательно для заполнения");
     }
 
     @Test
@@ -33,7 +33,7 @@ public class CodeFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setCode(Integer.parseInt(DataHelper.getInvalidCardNumber(2)));
         formCard.formFilling(card);
-        formCard.OperationErrorField("CVC/CVV", "Неверный формат");
+        formCard.operationErrorField("CVC/CVV", "Неверный формат");
     }
 
     @Test
@@ -42,6 +42,6 @@ public class CodeFieldTest {
         val payment = shopPage.payment();
         val formCard = payment.formCard();
         formCard.codeIsSpecialSymbols();
-        formCard.OperationErrorField("CVC/CVV", "Неверный формат");
+        formCard.operationErrorField("CVC/CVV", "Неверный формат");
     }
 }

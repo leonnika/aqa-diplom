@@ -29,7 +29,7 @@ public class DateFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setMonth("");
         formCard.formFilling(card);
-        formCard.OperationErrorField("Месяц", "Поле обязательно для заполнения");
+        formCard.operationErrorField("Месяц", "Поле обязательно для заполнения");
     }
 
     @Test
@@ -41,7 +41,7 @@ public class DateFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setYear("");
         formCard.formFilling(card);
-        formCard.OperationErrorField("Год", "Поле обязательно для заполнения");
+        formCard.operationErrorField("Год", "Поле обязательно для заполнения");
     }
 
     @Test
@@ -55,7 +55,7 @@ public class DateFieldTest {
         card.setMonth(date.getMonth());
         card.setYear(date.getYear());
         formCard.formFilling(card);
-        formCard.OperationSuccess();
+        formCard.operationSuccess();
         String expectedId = getPayment_idInBD();
         String actualId = getTransaction_id();
         assertEquals(expectedId, actualId);
@@ -77,7 +77,7 @@ public class DateFieldTest {
         card.setMonth(date.getMonth());
         card.setYear(date.getYear());
         formCard.formFilling(card);
-        formCard.OperationErrorField("Год", "Истёк срок действия карты");
+        formCard.operationErrorField("Год", "Истёк срок действия карты");
     }
 
     @Test
@@ -89,7 +89,7 @@ public class DateFieldTest {
         DateCard date = DataHelper.getDateInvalid();
         card.setMonth(date.getMonth());
         formCard.formFilling(card);
-        formCard.OperationErrorField("Месяц", "Неверно указан срок действия карты");
+        formCard.operationErrorField("Месяц", "Неверно указан срок действия карты");
     }
 
     @Test
@@ -101,7 +101,7 @@ public class DateFieldTest {
         DateCard date = DataHelper.getDateInvalid();
         card.setYear(date.getYear());
         formCard.formFilling(card);
-        formCard.OperationErrorField("Год", "Неверно указан срок действия карты");
+        formCard.operationErrorField("Год", "Неверно указан срок действия карты");
     }
 
     @Test
@@ -112,7 +112,7 @@ public class DateFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setYear(DataHelper.getInvalidCardNumber(1));
         formCard.formFilling(card);
-        formCard.OperationErrorField("Год", "Неверный формат");
+        formCard.operationErrorField("Год", "Неверный формат");
     }
 
     @Test
@@ -123,7 +123,7 @@ public class DateFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setMonth(DataHelper.getStringIsSpecialSymbols(2));
         formCard.formFilling(card);
-        formCard.OperationErrorField("Месяц", "Неверный формат");
+        formCard.operationErrorField("Месяц", "Неверный формат");
     }
 
     @Test
@@ -134,6 +134,6 @@ public class DateFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setYear(DataHelper.getStringIsSpecialSymbols(2));
         formCard.formFilling(card);
-        formCard.OperationErrorField("Год", "Неверный формат");
+        formCard.operationErrorField("Год", "Неверный формат");
     }
 }

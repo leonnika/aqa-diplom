@@ -27,7 +27,7 @@ package ru.netology.test.uiTest;
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setUser("");
         formCard.formFilling(card);
-        formCard.OperationErrorField("Владелец", "Поле обязательно для заполнения");
+        formCard.operationErrorField("Владелец", "Поле обязательно для заполнения");
 
         }
 
@@ -39,7 +39,7 @@ package ru.netology.test.uiTest;
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setUser(DataHelper.getUserShortName());
         formCard.formFilling(card);
-        formCard.OperationSuccess();
+        formCard.operationSuccess();
         String expectedId = getPayment_idInBD();
         String actualId = getTransaction_id();
         assertEquals(expectedId, actualId);
@@ -59,7 +59,7 @@ package ru.netology.test.uiTest;
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setUser(DataHelper.getUserLongName());
         formCard.formFilling(card);
-        formCard.OperationSuccess();
+        formCard.operationSuccess();
         String expectedId = getPayment_idInBD();
         String actualId = getTransaction_id();
         assertEquals(expectedId, actualId);
@@ -80,7 +80,7 @@ package ru.netology.test.uiTest;
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setUser(DataHelper.getStringIsSpecialSymbols(7));
         formCard.formFilling(card);
-        formCard.OperationErrorField("Владелец", "Поле обязательно для заполнения");
+        formCard.operationErrorField("Владелец", "Поле обязательно для заполнения");
         }
 
         @Test
@@ -92,7 +92,7 @@ package ru.netology.test.uiTest;
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setUser(DataHelper.getUserDifferentCaseLettersName());
         formCard.formFilling(card);
-        formCard.OperationErrorField("Владелец", "Неверный формат");
+        formCard.operationErrorField("Владелец", "Неверный формат");
         }
 
         @Test
@@ -103,7 +103,7 @@ package ru.netology.test.uiTest;
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setUser(DataHelper.getUserDubleName());
         formCard.formFilling(card);
-        formCard.OperationSuccess();
+        formCard.operationSuccess();
         String expectedId = getPayment_idInBD();
         String actualId = getTransaction_id();
         assertEquals(expectedId, actualId);
@@ -124,7 +124,7 @@ package ru.netology.test.uiTest;
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setUser(DataHelper.getUserRuName());
         formCard.formFilling(card);
-        formCard.OperationErrorField("Владелец", "Неверный формат");
+        formCard.operationErrorField("Владелец", "Неверный формат");
         }
 
         @Test
@@ -136,6 +136,6 @@ package ru.netology.test.uiTest;
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setUser(DataHelper.getUserVeryLongName());
         formCard.formFilling(card);
-        formCard.OperationErrorField("Владелец", "Неверный формат");
+        formCard.operationErrorField("Владелец", "Неверный формат");
         }
         }

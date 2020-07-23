@@ -26,22 +26,22 @@ public class FormCardPage {
         execButton.click();
     }
 
-    public void OperationSuccess() {
+    public void operationSuccess() {
         $(withText("Успешно")).waitUntil(visible, 15000);
         $(withText("Ошибка! Банк отказал в проведении операции.")).waitUntil(hidden, 1500);
     }
 
-    public void OperationFall() {
+    public void operationFall() {
         $(withText("Ошибка! Банк отказал в проведении операции.")).waitUntil(visible, 15000);
         $(withText("Успешно")).waitUntil(hidden, 15000);
     }
 
-    public void OperationErrorCardNumber(String errorMessage) {
+    public void operationErrorCardNumber(String errorMessage) {
         SelenideElement error = $("[class='form-field form-field_size_m form-field_theme_alfa-on-white']").shouldHave(text("Номер карты"));
         error.$("[class='input__sub']").shouldHave(exactText(errorMessage));
     }
 
-    public void OperationErrorField(String field, String errorMessage) {
+    public void operationErrorField(String field, String errorMessage) {
         SelenideElement error = $("[class='input-group__input-case input-group__input-case_invalid']").shouldHave(text(field));
         error.$("[class='input__sub']").shouldHave(exactText(errorMessage));
     }

@@ -37,7 +37,7 @@ public class PaymentTest {
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDpayment(getPayment_idInBD());
         assertEquals(expectedStatus, actualStatus);
-        formCard.OperationSuccess();
+        formCard.operationSuccess();
     }
 
     @Test
@@ -48,7 +48,7 @@ public class PaymentTest {
         val formCard = payment.formCard();
         CardInfo card = DataHelper.getValidCardInfoDECLINED();
         formCard.formFilling(card);
-        formCard.OperationFall();
+        formCard.operationFall();
         String expectedId = getPayment_idInBD();
         String actualId = getTransaction_id();
         assertEquals(expectedId, actualId);

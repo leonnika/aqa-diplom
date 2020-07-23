@@ -26,7 +26,7 @@ public class CardNumberFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setNumber(DataHelper.getInvalidCardNumber(16));
         formCard.formFilling(card);
-        formCard.OperationFall();
+        formCard.operationFall();
     }
 
     @Test
@@ -38,7 +38,7 @@ public class CardNumberFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setNumber("");
         formCard.formFilling(card);
-        formCard.OperationErrorCardNumber("Поле обязательно для заполнения");
+        formCard.operationErrorCardNumber("Поле обязательно для заполнения");
     }
 
     @Test
@@ -49,7 +49,7 @@ public class CardNumberFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setNumber(DataHelper.getInvalidCardNumber(5));
         formCard.formFilling(card);
-        formCard.OperationErrorCardNumber("Неверный формат");
+        formCard.operationErrorCardNumber("Неверный формат");
     }
 
     @Test
@@ -61,7 +61,7 @@ public class CardNumberFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setNumber("0000000000000000");
         formCard.formFilling(card);
-        formCard.OperationErrorCardNumber("Неверный формат");
+        formCard.operationErrorCardNumber("Неверный формат");
     }
 
     @Test
@@ -72,6 +72,6 @@ public class CardNumberFieldTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setNumber(DataHelper.getStringIsSpecialSymbols(16));
         formCard.formFilling(card);
-        formCard.OperationErrorCardNumber("Неверный формат");
+        formCard.operationErrorCardNumber("Неверный формат");
     }
 }

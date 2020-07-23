@@ -34,7 +34,7 @@ public class CreditTest {
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDcredit(getCredit_idInBD());
         assertEquals(expectedStatus, actualStatus);
-        formCard.OperationSuccess();
+        formCard.operationSuccess();
     }
 
     @Test
@@ -51,7 +51,7 @@ public class CreditTest {
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDcredit(getCredit_idInBD());
         assertEquals(expectedStatus, actualStatus);
-        formCard.OperationFall();
+        formCard.operationFall();
     }
 
     @Test
@@ -63,6 +63,6 @@ public class CreditTest {
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         card.setNumber(DataHelper.getInvalidCardNumber(16));
         formCard.formFilling(card);
-        formCard.OperationFall();
+        formCard.operationFall();
     }
 }

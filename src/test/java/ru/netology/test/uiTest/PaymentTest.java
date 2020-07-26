@@ -20,15 +20,17 @@ public class PaymentTest {
     @BeforeEach
     void setUpAll() {
         open(urlSUT);
+      // open("http://localhost:8080");
     }
 
     @Test
-    void shouldPaymentCardAPPROVEDValidAll() {
+    void assertSuccessPaymentCardAPPROVEDValidAll() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         formCard.formFilling(card);
+        formCard.operationSuccess();
         String expectedId = getPayment_idInBD();
         String actualId = getTransaction_id();
         assertEquals(expectedId, actualId);
@@ -38,12 +40,12 @@ public class PaymentTest {
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDpayment(getTransaction_id());
         assertEquals(expectedStatus, actualStatus);
-        formCard.operationSuccess();
+
     }
 
     @Test
         //issue1
-    void shouldNotPaymentCardDECLINEDValidAll() {
+    void waitFailurePaymentCardDECLINEDValidAll() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -59,6 +61,18 @@ public class PaymentTest {
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDpayment(getPayment_idInBD());
         assertEquals(expectedStatus, actualStatus);
+    }
+
+    @Test
+        //issue2
+    void waitErrorPaymentCardIsNormalLeght() {
+        val shopPage = new ShopPage();
+        val payment = shopPage.payment();
+        val formCard = payment.formCard();
+        CardInfo card = DataHelper.getValidCardInfoAPPROVED();
+        card.setNumber(DataHelper.getInvalidCardNumber(16));
+        formCard.formFilling(card);
+        formCard.operationFall();
     }
 }
 

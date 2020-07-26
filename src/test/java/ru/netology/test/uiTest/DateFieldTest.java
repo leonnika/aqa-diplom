@@ -19,12 +19,13 @@ public class DateFieldTest {
 
     @BeforeEach
     void setUpAll() {
-        open(urlSUT);
+       open(urlSUT);
+     //   open("http://localhost:8080");
     }
 
     @Test
         //issue5
-    void shouldNotPaymentMonthEmpty() {
+    void waitEmptyMonthError() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -36,7 +37,7 @@ public class DateFieldTest {
 
     @Test
         //issue6
-    void shouldNotPaymentYearEmpty() {
+    void waitEmptyYearError() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -48,7 +49,7 @@ public class DateFieldTest {
 
     @Test
 //issue9
-    void shouldNotPaymentValidAllDateFormatMYY() {
+    void assertSuccessPaymentValidAllDateFormatMYY() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -70,7 +71,7 @@ public class DateFieldTest {
     }
 
     @Test
-    void shouldNotPaymentValidAllDateIsLast() {
+    void waitDateIsLastError() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -83,7 +84,7 @@ public class DateFieldTest {
     }
 
     @Test
-    void shouldNotPaymentValidAllMonthInvalid() {
+    void waitInvalidMonthError() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -95,7 +96,7 @@ public class DateFieldTest {
     }
 
     @Test
-    void shouldNotPaymentValidAllYearInvalid() {
+    void waitInvalidYearError() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -107,7 +108,7 @@ public class DateFieldTest {
     }
 
     @Test
-    void shouldNotPaymentValidAllYearInvalidFormat() {
+    void waitInvalidYearErrorFormat() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -118,7 +119,7 @@ public class DateFieldTest {
     }
 
     @Test
-    void shouldNotPaymentMonthIsSpecialSymbols() {
+    void waitInvalidFormatErrorMonthIsSpecialSymbols() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -129,7 +130,7 @@ public class DateFieldTest {
     }
 
     @Test
-    void shouldNotPaymentYearIsSpecialSymbols() {
+    void waitInvalidFormatErrorYearIsSpecialSymbols() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();

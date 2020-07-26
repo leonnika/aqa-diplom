@@ -14,25 +14,13 @@ public class CardNumberFieldTest {
 
     @BeforeEach
     void setUpAll() {
-        open(urlSUT);
-    }
-
-
-    @Test
-        //issue2
-    void shouldNotPaymentCardInvalidNormalLeght() {
-        val shopPage = new ShopPage();
-        val payment = shopPage.payment();
-        val formCard = payment.formCard();
-        CardInfo card = DataHelper.getValidCardInfoAPPROVED();
-        card.setNumber(DataHelper.getInvalidCardNumber(16));
-        formCard.formFilling(card);
-        formCard.operationFall();
+       open(urlSUT);
+     //   open("http://localhost:8080");
     }
 
     @Test
         //issue4
-    void shouldNotPaymentCardEmpty() {
+    void waitEmptyCardError() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -43,7 +31,7 @@ public class CardNumberFieldTest {
     }
 
     @Test
-    void shouldNotPaymentCardInvalidShortLeght() {
+    void waitInvalidFormatErrorCardIsShortLeght() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -55,7 +43,7 @@ public class CardNumberFieldTest {
 
     @Test
         //issue3
-    void shouldNotPaymentCardInvalidIsNull() {
+    void waitInvalidFormatErrorCardIsNull() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -66,7 +54,7 @@ public class CardNumberFieldTest {
     }
 
     @Test
-    void shouldNotPaymentCardIsSpecialSymbols() {
+    void waitInvalidFormatErrorCardIsSpecialSymbols() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();

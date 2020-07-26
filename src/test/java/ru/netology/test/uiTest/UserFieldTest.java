@@ -18,11 +18,12 @@ public class UserFieldTest {
 
     @BeforeEach
     void setUpAll() {
-        open(urlSUT);
+       open(urlSUT);
+      //  open("http://localhost:8080");
     }
 
     @Test
-    void shouldNotPaymentUserEmpty() {
+    void waitEmptyUserError() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -34,7 +35,7 @@ public class UserFieldTest {
     }
 
     @Test
-    void shouldPaymentValidAllUserShortName() {
+    void assertSuccessPaymentValidAllUserShortName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -54,7 +55,7 @@ public class UserFieldTest {
     }
 
     @Test
-    void shouldPaymentValidAllUserLongName() {
+    void assertSuccessPaymentValidAllUserLongName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -75,7 +76,7 @@ public class UserFieldTest {
 
     @Test
         //issue8
-    void shouldNotPaymentUserIsSpecialSymbols() {
+    void waitInvalidFormatErrorUserIsSpecialSymbols() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -87,7 +88,7 @@ public class UserFieldTest {
 
     @Test
         //issue10
-    void shouldNotPaymentValidAllUserDifferentCaseLettersName() {
+    void waitInvalidFormatErrorUserDifferentCaseLettersName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -98,7 +99,7 @@ public class UserFieldTest {
     }
 
     @Test
-    void shouldPaymentValidAllUserDubleName() {
+    void assertSuccessPaymentValidAllUserDubleName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -119,7 +120,7 @@ public class UserFieldTest {
 
     @Test
 //issue11
-    void shouldNotPaymentValidAllUserRuName() {
+    void waitInvalidFormatErrorUserRuName() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -131,7 +132,7 @@ public class UserFieldTest {
 
     @Test
 //issue12
-    void shouldNotPaymentValidAllUserMore21Letters() {
+    void waitInvalidFormatErrorUserMore21Letters() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();

@@ -13,7 +13,7 @@ import static ru.netology.utils.api.JSONByGateSimulator.jsonByPayment;
 public class GateSimulatorTest {
 
     @Test
-    void shouldGetStatusByPaymentGateStatusAPPROVED() {
+    void checkStatusByPaymentGateAndStatusAPPROVED() {
         CardJSON card = DataHelper.getValidCardJsonAPPROVED();
         String actual = jsonByPayment(card);
         String expected = card.getStatus();
@@ -21,7 +21,7 @@ public class GateSimulatorTest {
     }
 
     @Test
-    void shouldGetStatusByPaymentGateStatusDECLINED() {
+    void checkStatusByPaymentGateAndStatusDECLINED() {
         CardJSON card = DataHelper.getValidCardJsonDECLINED();
         String actual = jsonByPayment(card);
         String expected = card.getStatus();
@@ -29,7 +29,7 @@ public class GateSimulatorTest {
     }
 
     @Test
-    void shouldGetStatusByCreditGateStatusAPPROVED() {
+    void checkStatusByCreditGateAndStatusAPPROVED() {
         CardJSON card = DataHelper.getValidCardJsonAPPROVED();
         String actual = jsonByCredit(card);
         String expected = card.getStatus();
@@ -37,7 +37,7 @@ public class GateSimulatorTest {
     }
 
     @Test
-    void shouldGetStatusByCreditGateStatusDECLINED() {
+    void checkStatusByCreditGateAndStatusDECLINED() {
         CardJSON card = DataHelper.getValidCardJsonDECLINED();
         String actual = jsonByCredit(card);
         String expected = card.getStatus();

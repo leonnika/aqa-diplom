@@ -20,45 +20,48 @@ public class CreditTest {
     @BeforeEach
     void setUpAll() {
         open(urlSUT);
+
     }
 
     @Test
         //issue14
-    void shouldCreditCardAPPROVEDValidAll() {
+    void assertSuccessCreditCardAPPROVEDValidAll() {
         val shopPage = new ShopPage();
         val credit = shopPage.credit();
         val formCard = credit.formCard();
         CardInfo card = DataHelper.getValidCardInfoAPPROVED();
         formCard.formFilling(card);
+        formCard.operationSuccess();
         String expectedId = getCredit_idInBD();
         String actualId = getBank_id();
         assertEquals(expectedId, actualId);
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDcredit(getCredit_idInBD());
         assertEquals(expectedStatus, actualStatus);
-        formCard.operationSuccess();
+
     }
 
     @Test
 //issue15
-    void shouldCreditCardDECLINEDValidAll() {
+    void waitFailureCreditCardDECLINEDValidAll() {
         val shopPage = new ShopPage();
         val credit = shopPage.credit();
         val formCard = credit.formCard();
         CardInfo card = DataHelper.getValidCardInfoDECLINED();
         formCard.formFilling(card);
+        formCard.operationFall();
         String expectedId = getCredit_idInBD();
         String actualId = getBank_id();
         assertEquals(expectedId, actualId);
         String expectedStatus = card.getStatus();
         String actualStatus = QueriesToBD.getStatusInBDcredit(getCredit_idInBD());
         assertEquals(expectedStatus, actualStatus);
-        formCard.operationFall();
+
     }
 
     @Test
 //issue16
-    void shouldNotCreditCardInvalid() {
+    void waitErrorCreditCardInvalid() {
         val shopPage = new ShopPage();
         val credit = shopPage.credit();
         val formCard = credit.formCard();

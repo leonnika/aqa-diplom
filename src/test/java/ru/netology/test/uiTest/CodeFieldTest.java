@@ -14,12 +14,13 @@ public class CodeFieldTest {
 
     @BeforeEach
     void setUpAll() {
-        open(urlSUT);
+       open(urlSUT);
+    //    open("http://localhost:8080");
     }
 
     @Test
         //issue7
-    void shouldNotPaymentCodeEmpty() {
+    void waitEmptyCodeError() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -28,7 +29,7 @@ public class CodeFieldTest {
     }
 
     @Test
-    void shouldNotPaymentValidAllCodeShort() {
+    void waitInvalidFormatErrorCodeShort() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();
@@ -39,7 +40,7 @@ public class CodeFieldTest {
     }
 
     @Test
-    void shouldNotPaymentCodeIsSpecialSymbols() {
+    void waitInvalidFormatErrorCodeIsSpecialSymbols() {
         val shopPage = new ShopPage();
         val payment = shopPage.payment();
         val formCard = payment.formCard();

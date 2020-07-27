@@ -10,9 +10,13 @@ build: off  # будем использовать свой скрипт сбор
 
 install:
   # запускаем SUT (& означает, что в фоновом режиме - не блокируем терминал для запуска тестов)
-  - docker-compose up
+  - docker container run -d \
+    -e MYSQL_RANDOM_ROOT_PASSWORD=yes \
+    -e MYSQL_DATABASE=app \
+    -e MYSQL_USER=app \
+    -e MYSQL_PASSWORD=pass \
+    mysql
   - java -jar ./artifacts/aqa-shop.jar &
 
 build_script:
-  -
   - ./gradlew test -Dselenide.headless=true -Durlbd=jdbc:mysql://localhost:3306/app --info  # запускаем тест, флаг --info позволяет выводить больше информации

@@ -10,8 +10,7 @@ build: off  # будем использовать свой скрипт сбор
 
 install:
   # запускаем SUT (& означает, что в фоновом режиме - не блокируем терминал для запуска тестов)
-  - curl -fsSL https://get.docker.com -o get-docker.sh
-  - sh get-docker.sh
+  - sudo usermod -aG docker appveyor
   - docker container run -d \
     -e MYSQL_RANDOM_ROOT_PASSWORD=yes \
     -e MYSQL_DATABASE=app \

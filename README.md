@@ -2,7 +2,7 @@
 ## Документация
 
 1. План автоматизации - [Plan.md](https://github.com/leonnika/aqa-diplom/blob/master/docs/Plan.md)
-2. Отчётные документы по итогам тестирования - Report.md (!не готов)
+2. Отчётные документы по итогам тестирования -  [Report.md](https://github.com/leonnika/aqa-diplom/blob/master/docs/Report.md)
 3. Отчётные документы по итогам автоматизации - Summary.md (!не готов)
 
 ## Краткое описание работы веб-сервиса

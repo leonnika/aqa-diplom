@@ -14,7 +14,8 @@ services:
 
 install:
   # запускаем SUT (& означает, что в фоновом режиме - не блокируем терминал для запуска тестов)
-   - ps: Install-Product node $env:8.16.2-alpine
+   - npm install
+   - npm start
    - java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar ./artifacts/aqa-shop.jar &
 
 build_script:

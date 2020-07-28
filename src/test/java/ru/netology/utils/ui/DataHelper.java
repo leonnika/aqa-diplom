@@ -62,8 +62,18 @@ public class DataHelper {
         return result;
     }
 
-    // метод для получения валидной даты. .
     public static DateCard getValidDateMM() {
+        String[] monthMM = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
+        return getValidDate(monthMM,12);
+    }
+
+    public static DateCard getValidDateM() {
+        String[] monthM = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+        return getValidDate(monthM,9);
+    }
+
+    // метод для получения валидной даты. .
+    public static DateCard getValidDate(String[] month,int monthNumber) {
         //Из текущей даты берем год и месяц
         LocalDate currentDate = LocalDate.now();
         String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
@@ -74,9 +84,6 @@ public class DataHelper {
         int randomIndexYear = (int) (Math.random() * intervalYear);
         LocalDate ramdomValidYear = currentDate.plusYears(randomIndexYear);
         String ramdomYearStr = ramdomValidYear.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
-        //массив из месяцев в формате ММ
-        int monthNumber = 12;
-        String[] month = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
         //рандовный месяц выбираем из возможных
         int randomIndex = (int) (Math.random() * monthNumber);
         String randomMonth = month[randomIndex];
@@ -91,35 +98,6 @@ public class DataHelper {
         }
         //если год равен текущец плюс пять, то валидным будет месяц меньше текущего
         // иначе срок карты не на пять лет а больше. Перебираем месяц пока это не выполнится
-        if (Integer.parseInt(ramdomYearStr) == (Integer.parseInt(currentYear)) + intervalYear) {
-            while (Integer.parseInt(randomMonth) > Integer.parseInt(currentMonth)) {
-                randomIndex = (int) (Math.random() * monthNumber);
-                randomMonth = month[randomIndex];
-            }
-        }
-        return new DateCard(randomMonth, ramdomYearStr);
-    }
-
-    // логика метода аналогично предыдущему,
-    // только пользователь может ввести месяц и как однозначное число, что тоже допустимо
-    public static DateCard getValidDateM() {
-        LocalDate currentDate = LocalDate.now();
-        String currentYear = currentDate.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
-        String currentMonth = currentDate.format(DateTimeFormatter.ofPattern("MM", new Locale("ru")));
-        int intervalYear = 5;
-        int randomIndexYear = (int) (Math.random() * intervalYear);
-        LocalDate ramdomValidYear = currentDate.plusYears(randomIndexYear);
-        String ramdomYearStr = ramdomValidYear.format(DateTimeFormatter.ofPattern("yy", new Locale("ru")));
-        int monthNumber = 9;
-        String[] month = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
-        int randomIndex = (int) (Math.random() * monthNumber);
-        String randomMonth = month[randomIndex];
-        if (Integer.parseInt(ramdomYearStr) == Integer.parseInt(currentYear)) {
-            while (Integer.parseInt(randomMonth) < Integer.parseInt(currentMonth)) {
-                randomIndex = (int) (Math.random() * monthNumber);
-                randomMonth = month[randomIndex];
-            }
-        }
         if (Integer.parseInt(ramdomYearStr) == (Integer.parseInt(currentYear)) + intervalYear) {
             while (Integer.parseInt(randomMonth) > Integer.parseInt(currentMonth)) {
                 randomIndex = (int) (Math.random() * monthNumber);

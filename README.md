@@ -36,13 +36,13 @@ docker-compose up
 * Для запуска приложения c mysql выполните:
 
 ```
-java -jar ./artifacts/aqa-shop.jar -Dspring.datasource.url=jdbc:mysql://localhost:3306/app
+java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar ./artifacts/aqa-shop.jar 
 
 ```
 * Для запуска приложения c psql выполните:
 
 ```
-java -jar ./artifacts/aqa-shop.jar -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app
+java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app -jar ./artifacts/aqa-shop.jar 
 
 ```
 

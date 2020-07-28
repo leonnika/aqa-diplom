@@ -10,6 +10,7 @@ build: off  # будем использовать свой скрипт сбор
 
 install:
   # запускаем SUT (& означает, что в фоновом режиме - не блокируем терминал для запуска тестов)
+  - docker-compose ps
   - sudo usermod -aG docker appveyor
   - docker container run -d \
     -e MYSQL_RANDOM_ROOT_PASSWORD=yes \

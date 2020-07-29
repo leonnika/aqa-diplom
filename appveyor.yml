@@ -13,7 +13,7 @@ services:
 
 test_script:
    - docker run -p 3306:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=yes" --env="MYSQL_PASSWORD=pass" --env="MYSQL_DATABASE=app" --env=" MYSQL_USER=app" mysql
-
+   - docker run -p 49160:9999 -d gate-simulator
 install:
    - java -Dspring.datasource.url=jdbc:mysql://127.0.0.1:3306/app -jar ./artifacts/aqa-shop.jar &
 

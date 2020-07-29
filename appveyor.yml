@@ -1,4 +1,4 @@
-image: Visual Studio 2015  # образ для сборки
+image: Ubuntu  # образ для сборки
 
 stack: jdk 11  # версия JDK
 
@@ -14,7 +14,7 @@ services:
 test_script:
    - docker-compose up
 install:
-   - java -Dspring.datasource.url=jdbc:mysql://127.0.0.1:3306/app -jar ./artifacts/aqa-shop.jar &
+   - java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar ./artifacts/aqa-shop.jar &
 
 build_script:
   - ./gradlew test -Dselenide.headless=true --info  # запускаем тест, флаг --info позволяет выводить больше информации

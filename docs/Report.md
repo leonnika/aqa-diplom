@@ -1,4 +1,5 @@
 # Отчёт о проведённом тестировании комплексного веб-сервиса, взаимодействующего с СУБД и API Банка.
+
 [![Build status](https://ci.appveyor.com/api/projects/status/54jnx0wsn98v59x8/branch/master?svg=true)](https://ci.appveyor.com/project/leonnika/aqa-diplom/branch/master)
 
 ## Краткое описание

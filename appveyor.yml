@@ -9,16 +9,12 @@ branches:
 build: off  # будем использовать свой скрипт сборки
 
 services:
-  - mysql
-    $env:MYSQL_PWD="pass"
-    $cmd = '"C:\Program Files\MySQL\MySQL Server 5.7\bin\mysql" -e "create database app;" --user=app'
-    iex "& $cmd"
+   - docker
+
+test_script:
+   - docker run -p 3306:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=yes" --env="MYSQL_PASSWORD=pass" --env="MYSQL_DATABASE=app" --env=" MYSQL_USER=app" mysql
 
 install:
-  $iniPath="C:\ProgramData\MySQL\MySQL Server 5.7\my.ini"
-  $newText = ([System.IO.File]::ReadAllText($iniPath)).Replace("# enable-named-pipe", "enable-named-pipe")
-  [System.IO.File]::WriteAllText($iniPath, $newText)
-  Restart-Service MySQL57
    - java -Dspring.datasource.url=jdbc:mysql://localhost:3306/app -jar ./artifacts/aqa-shop.jar &
 
 build_script:

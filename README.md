@@ -7,7 +7,7 @@
 
 1. План автоматизации - [Plan.md](https://github.com/leonnika/aqa-diplom/blob/master/docs/Plan.md)
 2. Отчётные документы по итогам тестирования -  [Report.md](https://github.com/leonnika/aqa-diplom/blob/master/docs/Report.md)
-3. Отчётные документы по итогам автоматизации - Summary.md (!не готов)
+3. Отчётные документы по итогам автоматизации - [Summary.md](https://github.com/leonnika/aqa-diplom/blob/master/docs/Summary.md)
 
 ## Краткое описание работы веб-сервиса
 Приложение предлагает купить тур по определённой цене с помощью двух способов:

@@ -1,4 +1,8 @@
 # Тестирование сценария покупки тура через комплексный веб-сервис, взаимодействующего с СУБД и API Банка.
+
+## Сборка проекта на Appveyor CI
+[![Build status](https://ci.appveyor.com/api/projects/status/54jnx0wsn98v59x8/branch/master?svg=true)](https://ci.appveyor.com/project/leonnika/aqa-diplom/branch/master)
+
 ## Документация
 
 1. План автоматизации - [Plan.md](https://github.com/leonnika/aqa-diplom/blob/master/docs/Plan.md)

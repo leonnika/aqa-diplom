@@ -8,9 +8,6 @@ branches:
 
 build: off  # будем использовать свой скрипт сборки
 
-- job_name: test_script
-- job_name: install
-  job_depends_on: test_script
 services:
    - docker
 
@@ -22,4 +19,3 @@ install:
 
 build_script:
   - ./gradlew test -Dselenide.headless=true -Durlbd=jdbc:mysql://localhost:3306/app --info  # запускаем тест, флаг --info позволяет выводить больше информации
-  

@@ -24,3 +24,12 @@ services:
       - POSTGRES_PASSWORD=pass
       - POSTGRES_DB=app
       - POSTGRES_USER=app
+  Java:
+    restart: always
+    image: bitnami/java:13.0.1
+    ports:
+      - 8080:8080
+    command: "java -jar ./artifacts/aqa-shop.jar -Dspring.datasource.url=jdbc:mysql://localhost:3306/app"
+    volumes:
+      - ./artifacts:/app
+      - ./application.properties:/application.properties

@@ -10,7 +10,7 @@ build: off  # будем использовать свой скрипт сбор
 
 services:
    - docker
-   -
+   
 build_script:
    - docker-compose up -d
 

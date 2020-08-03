@@ -60,8 +60,8 @@
 2|checkStatusByPaymentGateAndStatusDECLINED|карта 4444 4444 4444 4442|тесирование Payment Gate
 3|checkStatusByCreditGateAndStatusAPPROVED|карта 4444 4444 4444 4441|тесирование Credit Gate
 4|checkStatusByCreditGateAndStatusDECLINED|карта 4444 4444 4444 4442|тесирование Credit Gate
-5|waitStatusCode400ByCreditGateInvalidCard|карта 4444 4444 4444 4442|тесирование Credit Gate невадный номер карты
-6|waitStatusCode400ByPaymentGateInvalidCard|карта 4444 4444 4444 4442|тесирование Payment Gate невалидный номер карты
+5|waitStatusCode400ByCreditGateInvalidCard|карта 4444 4444 4444 4444|тесирование Credit Gate невадный номер карты
+6|waitStatusCode400ByPaymentGateInvalidCard|карта 4444 4444 4444 4444|тесирование Payment Gate невалидный номер карты
 *IU тестирование*| функциональное тестирование
 7|assertSuccessPaymentCardAPPROVEDValidAll|карта 4444 4444 4444 4441, все данные в форме валидные|функциональное тестирование покупки тура по карте.
 8|assertSuccessCreditCardAPPROVEDValidAll|карта 4444 4444 4444 4441, все данные в форме валидные|функциональное тестирование покупки тура по карте в кредит. 
@@ -106,7 +106,7 @@
 <details>
   <summary>Подробнее отчет на базе Gradle</summary>
 
-![Отчет](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/report/gradle_report.png) 
+![Отчет](https://github.com/leonnika/aqa-diplom/blob/master/docs/png/report/gradle_report.PNG) 
 
 </details>
 

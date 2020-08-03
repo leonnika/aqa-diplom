@@ -40,4 +40,24 @@ public class JSONByGateSimulator {
         String status = response.path("status");
         return status;
     }
+
+    public static void jsonByPaymentInvalidCard(CardJSON card) {
+        given()
+                .spec(requestSpec)
+                .body(card)
+                .when()
+                .post("/payment")
+                .then()
+                .statusCode(400);
+    }
+
+    public static void jsonByCreditInvalidCard(CardJSON card) {
+        given()
+                .spec(requestSpec)
+                .body(card)
+                .when()
+                .post("/credit")
+                .then()
+                .statusCode(400);
+    }
 }

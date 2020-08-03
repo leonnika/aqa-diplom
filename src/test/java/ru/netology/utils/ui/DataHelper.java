@@ -28,6 +28,10 @@ public class DataHelper {
         return new CardJSON("4444 4444 4444 4442", "DECLINED");
     }
 
+    public static CardJSON getInvalidCardJsonDECLINED() {
+        return new CardJSON("4444 4444 4444 4444", "DECLINED");
+    }
+
     public static CardInfo getValidCardInfoAPPROVED() {
         Faker faker = new Faker(new Locale("en"));
         String number = "4444 4444 4444 4441";

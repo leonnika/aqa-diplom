@@ -7,8 +7,7 @@ import ru.netology.utils.ui.DataHelper;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static ru.netology.utils.api.JSONByGateSimulator.jsonByCredit;
-import static ru.netology.utils.api.JSONByGateSimulator.jsonByPayment;
+import static ru.netology.utils.api.JSONByGateSimulator.*;
 
 public class GateSimulatorTest {
 
@@ -42,5 +41,17 @@ public class GateSimulatorTest {
         String actual = jsonByCredit(card);
         String expected = card.getStatus();
         assertThat(actual, equalTo(expected));
+    }
+
+    @Test
+    void waitStatusCode400ByCreditGateInvalidCard() {
+        CardJSON card = DataHelper.getInvalidCardJsonDECLINED();
+        jsonByCreditInvalidCard(card);
+    }
+
+    @Test
+    void waitStatusCode400ByPaymentGateInvalidCard() {
+        CardJSON card = DataHelper.getInvalidCardJsonDECLINED();
+        jsonByPaymentInvalidCard(card);
     }
 }
